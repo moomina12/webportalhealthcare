@@ -1,3 +1,5 @@
+import demoVideo from "../assets/HealthcareApp-demo6.mp4";  
+
 export default function About() {
   return (
     <div className="min-h-screen bg-white flex flex-col items-center pt-10">
@@ -12,10 +14,12 @@ export default function About() {
         autoPlay
         muted
         loop
+        playsInline
       >
-        <source src="/video/HealthcareApp-demo6.mp4" type="video/mp4" />
+        <source src={demoVideo} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
     </div>
   );
 }
+
