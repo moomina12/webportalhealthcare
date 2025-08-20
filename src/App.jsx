@@ -5,14 +5,14 @@ import About from "./Pages/About";
 import Services from "./Pages/Services";
 import Contact from "./Pages/Contact";
 import { useState } from "react";
-import { Menu, X } from "lucide-react"; // icons (npm install lucide-react)
+import { Menu, X } from "lucide-react"; // npm install lucide-react
 
 export default function App() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="relative h-screen w-screen overflow-hidden bg-black text-white">
-      {/* Mobile Navbar Toggle */}
+    <div className="relative h-screen w-screen bg-black text-white">
+      {/* Mobile Hamburger Menu */}
       <div className="md:hidden fixed top-4 left-4 z-20">
         <button
           onClick={() => setIsOpen(!isOpen)}
@@ -22,14 +22,14 @@ export default function App() {
         </button>
       </div>
 
-      <div className="relative z-10 flex h-full">
-        {/* Sidebar - hidden on mobile, slides in */}
+      <div className="flex h-full">
+        {/* Sidebar */}
         <div
-          className={`fixed md:static top-0 left-0 h-full w-64 bg-gray-900 transform 
+          className={`fixed md:static top-0 left-0 h-full w-64 transform 
           ${isOpen ? "translate-x-0" : "-translate-x-full"} 
-          md:translate-x-0 transition-transform duration-300 ease-in-out z-20`}
+          md:translate-x-0 transition-transform duration-300 ease-in-out z-10`}
         >
-          <Navbar />
+          <Navbar onClose={() => setIsOpen(false)} />
         </div>
 
         {/* Main Pages */}
